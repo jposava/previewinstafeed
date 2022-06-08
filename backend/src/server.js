@@ -14,7 +14,7 @@ const url = `https://graph.instagram.com/me/media?access_token=${token + part2ur
 
 //SERVER ON
 server.listen(port, () => {
-    console.log(`API ONLINE NA PORTA ${port}`);
+    console.log(`API ONLINE ON PORT ${port}`);
 });
 
 //GET FEED
