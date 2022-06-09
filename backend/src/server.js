@@ -19,9 +19,6 @@ server.listen(port, () => {
 
 //GET FEED
 server.get('/', async (req, res) => {
-    return (
-        res.status(200)
-            .send(await axios.get(url)
-                .then((res) => res.data))
-    );
+    const data = await axios.get(url).then((res) => res.data)
+    return  res.status(200).send(data)
 });

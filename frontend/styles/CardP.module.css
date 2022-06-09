@@ -1,0 +1,40 @@
+.card {
+  width: 293px;
+  height: 293px;
+  background-color: #fff;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 26px;
+  cursor: pointer;
+}
+
+.card>img {
+  max-width: 300px;
+  height: auto;
+}
+
+.delete {
+  width: 293px;
+  height: 293px;
+  background-color: rgba(0, 0, 0, 0.80);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  z-index: 10;
+  position: absolute;
+  opacity: 0%;
+}
+
+.delete:hover {
+  opacity: 100%;
+}
+
+.delete>img {
+  width: 40px;
+  height: auto;
+}
