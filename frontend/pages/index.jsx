@@ -9,16 +9,19 @@ import Card from '../components/card';
 import CardP from '../components/cardP';
 
 export async function getStaticProps() {
-  const url = `http://localhost:8080/`;
-
-  const data = await fetch(url);
+  const urlGetFeed = `http://localhost:8080/`;
+  const data = await fetch(urlGetFeed);
   const dataPosts = await data.json();
+
+  const urlGetFakePosts = `http://localhost:8080/fakeposts`;
+  const dataFakePost = await fetch(urlGetFakePosts);
+  const dataFakePosts = await dataFakePost.json();
   return {
-    props: { dataPosts },
+    props: { dataPosts, dataFakePosts },
   }
 }
 
-export default function Home({ dataPosts }) {
+export default function Home({ dataPosts, dataFakePosts }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -30,9 +33,11 @@ export default function Home({ dataPosts }) {
       <Header />
 
       <main className={styles.main}>
-        <CardP photoP="/images/cardTeste.jpg"/>
-        <CardP photoP="/images/cardTeste.jpg"/>
-        <CardP photoP="/images/cardTeste.jpg"/>
+        {
+          dataFakePosts.map(p => (
+            <CardP key={p._id} photoP={p.image} id={p._id} />
+          ))
+        }
         {
           dataPosts ?
             dataPosts.data.map(p => (
